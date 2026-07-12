@@ -249,7 +249,7 @@
     max-width: 600px;
   }
 
-  /* Сокращенный блок "Обо мне" */
+  /* Сокращенный и честный блок знакомства */
   .about-text-merged {
     margin-bottom: 28px;
   }
@@ -308,11 +308,12 @@
     font-weight: 600;
   }
 
-  /* Блок фото (из "Обо мне") - Оптимизирован под мобильные экраны без абсолютного схлопывания */
+  /* Блок фото (из "Обо мне") - Оптимизирован под мобильные экраны c жестко заданным aspect-ratio */
   .about-photo {
     position: relative;
     width: 100%;
     max-width: 380px;
+    aspect-ratio: 4 / 5; /* Предотвращает схлопывание высоты на смартфонах */
     margin: 0 auto;
     border-radius: var(--radius);
     overflow: hidden;
@@ -906,7 +907,7 @@
     color: var(--ink-soft);
   }
 
-  /* ============ LORK-STYLE CONTACT (artemmaximovich.lork.dev style) ============ */
+  /* ============ CONTACT (Блок с записью на пробное) ============ */
   .contact {
     padding: 100px 0;
     background: var(--bg-soft);
@@ -935,12 +936,16 @@
     place-items: center;
     margin: 0 auto 24px;
     position: relative;
-    border: none;
-    box-shadow: none;
+    border: none !important;      /* Полный сброс рамки логотипа */
+    box-shadow: none !important;  /* Полный сброс тени логотипа */
+    background: transparent !important;
   }
   .lork-contact-avatar img {
     width: 100%; height: 100%;
     object-fit: contain;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
   }
   .lork-active-badge {
     position: absolute;
@@ -1169,7 +1174,6 @@
       <li><a href="#progress">Твой прогресс</a></li>
       <li><a href="#reviews">Отзывы</a></li>
       <li>
-        <!-- Понятная и читаемая кнопка «Записаться» в шапке -->
         <a href="#contact" class="nav-cta">Записаться</a>
       </li>
     </ul>
@@ -1215,7 +1219,7 @@
         </div>
 
         <div class="hero-actions">
-          <!-- Просто черная кнопка к соцсетям без текста внутри блока -->
+          <!-- Просто черная кнопка к соцсетям без текста -->
           <a href="#contact" class="btn-circle-black" aria-label="Связаться со мной в соцсетях">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
               <path d="M5 12h14M13 5l7 7-7 7"/>
@@ -1310,7 +1314,7 @@
 <section class="formats" id="formats">
   <div class="container">
     <div class="section-head reveal">
-      <span class="section-label">Format занятия</span>
+      <span class="section-label">Формат занятий</span>
       <h2>Удобные форматы обучения</h2>
       <p>Подберу формат, который подходит именно тебе для достижения максимального результата.</p>
     </div>
@@ -1325,11 +1329,9 @@
       <div class="tab-content">
         <!-- Панель 1: Групповое расписание -->
         <div class="tab-panel active" id="schedule">
-          <!-- Относится только к групповому интерактиву -->
           <p class="tab-panel-intro">Всё проходит онлайн. Занятия трижды в неделю с акцентом на практику.</p>
           <div class="schedule-layout">
             
-            <!-- Левая колонка: Сетка расписания (Теперь в 3 колонки на десктопе для баланса) -->
             <div class="schedule-grid">
               <!-- Понедельник -->
               <div class="schedule-card">
@@ -1368,7 +1370,7 @@
               </div>
             </div>
 
-            <!-- Широкоформатный горизонтальный скриншот Zoom во всю ширину (Идеально под ai2.jpeg) -->
+            <!-- Широкоформатный горизонтальный скриншот Zoom во всю ширину -->
             <div class="zoom-horizontal-preview reveal">
               <div class="zoom-badge">Как проходит урок</div>
               <img src="ai.png" alt="Урок в Zoom" class="zoom-img">
@@ -1528,7 +1530,7 @@
   </div>
 </section>
 
-<!-- ============ REVIEWS (ФОТО-ПЛЕЙСХОЛДЕРЫ ДЛЯ НАСТОЯЩИХ ОТЗЫВОВ) ============ -->
+<!-- ============ REVIEWS ============ -->
 <section class="reviews" id="reviews">
   <div class="container">
     <div class="section-head reveal">
@@ -1536,45 +1538,55 @@
       <h2>Что говорят ученики</h2>
     </div>
     
-    <!-- Сетка с реальными скриншотами отзывов (ai4.jpg, ai5.jpg, ai6.jpg) -->
     <div class="reviews-grid reveal-stagger">
-      
-      <!-- Отзыв 1 (ai4.jpg) -->
+      <!-- Отзыв 1 -->
       <div class="screenshot-placeholder" style="border: none; padding: 0; background: none; box-shadow: var(--shadow-sm);">
         <img src="ai4.jpg" alt="Отзыв ученика 1" style="width: 100%; height: auto; display: block; border-radius: var(--radius);">
       </div>
 
-      <!-- Отзыв 2 (ai5.jpg) -->
+      <!-- Отзыв 2 -->
       <div class="screenshot-placeholder" style="border: none; padding: 0; background: none; box-shadow: var(--shadow-sm);">
         <img src="ai5.jpg" alt="Отзыв ученика 2" style="width: 100%; height: auto; display: block; border-radius: var(--radius);">
       </div>
 
-      <!-- Отзыв 3 (ai6.jpg) -->
+      <!-- Отзыв 3 -->
       <div class="screenshot-placeholder" style="border: none; padding: 0; background: none; box-shadow: var(--shadow-sm);">
         <img src="ai6.jpg" alt="Отзыв ученика 3" style="width: 100%; height: auto; display: block; border-radius: var(--radius);">
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ============ LORK-STYLE CONTACT (Контакты в стиле Lork.dev) ============ -->
+<!-- ============ CONTACT (Блок с записью на пробное) ============ -->
 <section class="contact" id="contact">
   <div class="container">
     <div class="lork-contact-card reveal">
       
-      <!-- Круглый аватар-иконка (Вставлен ваш логотип ai3.png) -->
-      <div class="lork-contact-avatar" style="background: none;">
-        <img src="ai3.png" alt="МЕЛСКУЛ" style="width: 100%; height: 100%; object-fit: contain; border-radius: 50%;">
+      <!-- Логотип без рамки и фонов -->
+      <div class="lork-contact-avatar">
+        <img src="ai3.png" alt="МЕЛСКУЛ">
         <div class="lork-active-badge"></div>
       </div>
       
-      <h2 class="lork-contact-title">Готовы попробовать?</h2>
-      <p class="lork-contact-desc">
-        Запишись на первое бесплатное занятие-диагностику в МЕЛСКУЛ. Мы определим твой текущий уровень, найдем пробелы и составим пошаговый план подготовки.
-      </p>
+      <h2 class="lork-contact-title">Начни подготовку с <strong>БЕСПЛАТНОГО</strong> пробного урока!</h2>
 
-      <!-- Лаконичные кнопки-ссылки на мессенджеры в стиле Lork.dev -->
+      <!-- Хук из 3 понятных пунктов -->
+      <div class="lork-contact-steps">
+        <div class="lork-step-item">
+          <span class="lork-step-emoji">👋</span>
+          <p><strong>Познакомимся</strong> и обсудим твои цели на учебный год.</p>
+        </div>
+        <div class="lork-step-item">
+          <span class="lork-step-emoji">📐</span>
+          <p><strong>Разберем любую тему с нуля</strong> на понятных примерах</p>
+        </div>
+        <div class="lork-step-item">
+          <span class="lork-step-emoji">📈</span>
+          <p><strong>Составим личный трек подготовки</strong> до желаемой оценки на экзамене.</p>
+        </div>
+      </div>
+
+      <!-- Кнопка записи на пробное -->
       <div class="lork-buttons-container">
         <a href="https://t.me/your_username" class="lork-action-button solid-black" target="_blank" rel="noopener">
           <span class="lork-btn-icon">
@@ -1582,7 +1594,6 @@
           </span>
           <div class="lork-btn-text-block">
             <span class="lork-btn-primary-text">Записаться в Telegram</span>
-            <span class="lork-btn-secondary-text">Отвечу быстрее всего</span>
           </div>
           <span class="lork-btn-arrow">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
@@ -1627,11 +1638,9 @@
 
   tabTriggers.forEach(trigger => {
     trigger.addEventListener('click', () => {
-      // Deactivate all triggers and panels
       tabTriggers.forEach(t => t.classList.remove('active'));
       tabPanels.forEach(p => p.classList.remove('active'));
 
-      // Activate clicked trigger and panel
       trigger.classList.add('active');
       const targetId = trigger.getAttribute('data-tab');
       const targetPanel = document.getElementById(targetId);
@@ -1641,7 +1650,7 @@
     });
   });
 
-  /* ===== Interactive Progress Simulator (Симулятор прогресса) ===== */
+  /* ===== Interactive Progress Simulator ===== */
   const simBtns = document.querySelectorAll('.sim-btn');
   const simFill = document.getElementById('simProgressFill');
   const simScore = document.getElementById('simMetricScore');
@@ -1661,7 +1670,6 @@
       const step = btn.getAttribute('data-step');
       const data = stepsData[step];
 
-      // Плавное заполнение полосы и обновление текстов
       simFill.style.width = data.fill;
       simScore.textContent = data.score;
       simScore.style.color = data.color;
@@ -1687,8 +1695,7 @@
     }
   });
 
-  /* ===== Mouse-driven gentle parallax on hero ===== */
-  const heroBg = document.querySelector('.hero-bg');
+  /* ===== Mouse-driven parallax on hero ===== */
   const hero = document.querySelector('.hero');
   hero.addEventListener('mousemove', e => {
     const rect = hero.getBoundingClientRect();
@@ -1728,6 +1735,5 @@
   };
   window.addEventListener('scroll', setActive);
 </script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
