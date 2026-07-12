@@ -308,19 +308,15 @@
     font-weight: 600;
   }
 
-  /* Блок фото (из "Обо мне") - Решено схлопывание через правильное наложение стилей на тег img */
+  /* Блок фото (из "Обо мне") - Оптимизирован под мобильные экраны c жестко заданным aspect-ratio */
   .about-photo {
+    position: relative;
     width: 100%;
     max-width: 380px;
+    aspect-ratio: 4 / 5; /* Предотвращает схлопывание высоты на смартфонах */
     margin: 0 auto;
-  }
-  .about-photo img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 5; /* Идеальные пропорции, которые гарантируют рендеринг на любых телефонах */
-    object-fit: cover;
     border-radius: var(--radius);
-    display: block;
+    overflow: hidden;
   }
 
   /* ============ SECTIONS COMMON ============ */
