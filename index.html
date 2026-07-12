@@ -278,6 +278,7 @@
     color: #fff;
     transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s;
     box-shadow: var(--shadow-md);
+    z-index: 5;
   }
   .btn-circle-black:hover {
     transform: scale(1.1);
@@ -319,21 +320,6 @@
     width: 100%;
     max-width: 380px;
     margin: 0 auto;
-  }
-  .about-photo-inner {
-    position: absolute;
-    inset: 0;
-    background: var(--grad-main);
-    display: grid;
-    place-items: center;
-  }
-  .about-photo-inner::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: 
-      radial-gradient(circle at 30% 20%, rgba(255,255,255,0.4), transparent 50%),
-      radial-gradient(circle at 70% 80%, rgba(200, 182, 255, 0.3), transparent 50%);
   }
   .about-photo-tag {
     position: absolute;
@@ -1161,6 +1147,7 @@
   <div class="container nav-inner">
     <a href="#hero" class="logo">
       <span class="logo-mark">
+        <!-- Стилизованная математическая волна в точности как на вашем логотипе -->
         <svg width="26" height="26" viewBox="0 0 40 40" fill="none">
           <path d="M9 22 C9 24, 11 26, 13 24 C16 22, 17 14, 19 14 C22 14, 23 24, 25 24 C28 24, 29 10, 31 10 C33 10, 33 24, 31 26"
                 stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
@@ -1245,13 +1232,11 @@
         </div>
       </div>
 
-      <!-- Фото часть (Вставлена картинка ai.png) -->
+      <!-- Фото часть (Вставлена реальная картинка ai.png из корня репозитория) -->
       <div class="hero-photo-container">
         <div class="about-photo">
-          <div class="about-photo-inner">
-            <img src="ai.png" alt="Слава" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius);">
-          </div>
-          <div class="about-photo-tag">
+          <img src="ai.png" alt="Слава" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius); display: block; position: absolute; inset: 0; z-index: 1;">
+          <div class="about-photo-tag" style="z-index: 2;">
             <span class="emoji">👋</span>
             <span>Привет!<br>Это я — Слава</span>
           </div>
@@ -1381,10 +1366,10 @@
               </div>
             </div>
 
-            <!-- Правая колонка: Скриншот Zoom урока (Вставлена картинка ai2.jpeg) -->
-            <div class="zoom-preview-placeholder" style="border: none; padding: 0;">
+            <!-- Правая колонка: Скриншот Zoom урока (Вставлена реальная картинка ai2.jpeg из корня репозитория) -->
+            <div class="zoom-preview-placeholder" style="border: none; padding: 0; position: relative;">
               <div class="zoom-badge">Как устроен урок</div>
-              <img src="ai2.jpeg" alt="Урок в Zoom" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius);">
+              <img src="ai2.jpeg" alt="Урок в Zoom" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius); z-index: 1;">
             </div>
 
           </div>
@@ -1595,11 +1580,11 @@
   <div class="container">
     <div class="lork-contact-card reveal">
       
-      <!-- Круглый аватар-иконка -->
+      <!-- Круглый аватар-иконка (Стилизована под ваш прикрепленный логотип) -->
       <div class="lork-contact-avatar">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-          <circle cx="12" cy="9" r="4"/>
-          <path d="M4 21c0-4.5 3.5-8 8-8s8 3.5 8 8"/>
+        <svg viewBox="0 0 40 40" fill="none" style="width: 44px; height: 44px;">
+          <path d="M9 22 C9 24, 11 26, 13 24 C16 22, 17 14, 19 14 C22 14, 23 24, 25 24 C28 24, 29 10, 31 10 C33 10, 33 24, 31 26"
+                stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
         <div class="lork-active-badge"></div>
       </div>
